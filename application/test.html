@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dropContainer" style="border:1px solid black;height:100px;">
+        Drop Here
+    </div>
+    Should update here:
+    <input type="file" id="fileInput" />
+     
+     
+     
+    <script>
+        dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
+           evt.preventDefault();
+        };
+         
+        dropContainer.ondrop = function(evt) {
+           // pretty simple -- but not for IE :(
+           fileInput.files = evt.dataTransfer.files;
+         
+           // If you want to use some of the dropped files
+           const dT = new DataTransfer();
+           dT.items.add(evt.dataTransfer.files[0]);
+           dT.items.add(evt.dataTransfer.files[3]);
+           fileInput.files = dT.files;
+         
+           evt.preventDefault();
+        };
+    </script>
+</body>
+</html>

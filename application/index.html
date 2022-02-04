@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mood Me Application: Reed Graff</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <h1 style="text-align: center;">
+            Upload a photo of a group of people, and this website will count them!
+        </h1>
+        <h2 style="text-align: center;">
+            If you need an example: <a href="boys.png" target="_blank">Click me!</a><br>
+            Then download and use the website accordingly!
+        </h2>
+        <div id="hero_grid">
+            <div id="grid_view">
+                <div class="wrapper">
+                    <div class="container">
+                        <h1>Upload a file</h1>
+                        <div class="upload-container">
+                            <div class="border-container" id="dragOver">
+                                <div class="icons fa-4x">
+                                    <i class="fas fa-file-image" data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>
+                                    <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
+                                    <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>
+                                </div>
+                                <input type="file" id="fileUpload" style="display: none;">
+                                <p id="file_text">Drag and drop files here!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="container_2">
+                        <h1>Output File</h1>
+                        <div id="canvas_out">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="wrapper container" id="hero_grid">
+                <img id="imagePreview" style="margin-left: auto;margin-right: auto; max-width: 100%;">
+                <button onclick="MLDetection()">Submit Picture</button>
+                <button onclick="SaveCanvas()">Save Output</button>
+                <!--
+                    <table align="left">
+                        <thead>
+                            <tr>
+                                <th>Keys</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody align="left">
+                            <tr>
+                                <th>Number of People</th>
+                                <td>val</td>
+                            </tr>
+                            <tr>
+                                <th>Average</th>
+                                <td>val</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                -->
+            </div>
+        </div>
+
+        <!--
+<div id="dropContainer" style="border:1px solid black;height:100px;">
+   Drop Here
+</div>
+  Should update here:
+  <input type="file" id="fileInput" />
+
+
+
+dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
+  evt.preventDefault();
+};
+
+dropContainer.ondrop = function(evt) {
+  // pretty simple -- but not for IE :(
+  fileInput.files = evt.dataTransfer.files;
+
+  // If you want to use some of the dropped files
+  const dT = new DataTransfer();
+  dT.items.add(evt.dataTransfer.files[0]);
+  dT.items.add(evt.dataTransfer.files[3]);
+  fileInput.files = dT.files;
+
+  evt.preventDefault();
+};
+
+
+
+to save:
+var canvas = document.getElementById("alpha");
+window.open(canvas.toDataURL('image/png'));
+        -->
+        
+        <script src="detect.js"></script>
+        <script src="Ai/face-api.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-a11y="true"></script>
+    </body>
+</html>
+
+<!--
+
+    In the future use this: https://github.com/justadudewhohacks/face-api.js/issues/130
+
+-->
+
+
+<!--
+Credits:
+ - https://codepen.io/anithvishwanath/pen/qYrWJJ
+-->

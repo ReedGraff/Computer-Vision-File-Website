@@ -1,0 +1,1 @@
+This is part of my application for a Mood-Me internship
